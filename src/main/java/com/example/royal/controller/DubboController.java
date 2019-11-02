@@ -2,6 +2,8 @@ package com.example.royal.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.alibaba.dubbo.rpc.service.EchoService;
+import com.example.core.facade.CallbackFacade;
+import com.example.core.facade.CallbackListener;
 import com.example.core.facade.DubboFacade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -24,6 +26,19 @@ public class DubboController {
 
     @Autowired
     private DubboFacade dubboFacade;
+
+    @Autowired
+    private CallbackFacade callbackFacade;
+
+    @RequestMapping("callback")
+    public void callBack() {
+        callbackFacade.addListener("foo.bar", new CallbackListener(){
+            public void changed(String msg) {
+                System.out.println("callback1:" + msg);
+            }
+        });
+    }
+
 
     @RequestMapping("hello2")
     public List<String> sayHello() {

@@ -22,5 +22,7 @@
     <!--<dubbo:reference id="dubboFacade" stub="com.example.royal.stubs.DubboFacadeStub" interface="com.example.core.facade.DubboFacade" check="false" version="0.0.1" group="fake,core"/>-->
     <dubbo:reference id="dubboFacade" interface="com.example.core.facade.DubboFacade" check="false" version="0.0.1" group="fake,core" merger="true"/>
 
+    <dubbo:reference id="callbackFacade" interface="com.example.core.facade.CallbackFacade" check="false"/>
+
     <dubbo:annotation package="com.example.royal.controller" />
 </beans>
