@@ -32,6 +32,7 @@ public class DubboController {
 
     @RequestMapping("callback")
     public void callBack() {
+        //Dubbo 将基于长连接生成反向代理，这样就可以从服务器端调用客户端逻辑 [1]。可以参考 dubbo 项目中的示例代码。
         callbackFacade.addListener("foo.bar", new CallbackListener(){
             public void changed(String msg) {
                 System.out.println("callback1:" + msg);
@@ -42,8 +43,6 @@ public class DubboController {
 
     @RequestMapping("hello2")
     public List<String> sayHello() {
-        EchoService echoService = (EchoService) dubboFacade; // 强制转型为EchoService
-
         // 回声测试可用性
 //        String status = (String) echoService.$echo("OK");
 //

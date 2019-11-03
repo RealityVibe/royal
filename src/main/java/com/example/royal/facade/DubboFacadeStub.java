@@ -1,6 +1,7 @@
-package com.example.royal.stubs;
+package com.example.royal.facade;
 
 import com.example.core.facade.DubboFacade;
+import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,9 +23,11 @@ public class DubboFacadeStub implements DubboFacade {
     @Override
     public List<String> sayHello() {
         try{
+
+//            return Lists.newArrayList("Stub msg1", "Stub msg2");
            return dubboFacade.sayHello();
         } catch (Exception e) {
-            return new ArrayList<>();
+            return Lists.newArrayList("Stub msg3", "Stub msg4");
         }
     }
 }

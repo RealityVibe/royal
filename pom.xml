@@ -74,6 +74,13 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
 
+        <!--Guava依赖-->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>28.1-jre</version>
+        </dependency>
+
     </dependencies>
 
     <build>
